@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  gas-back:
+    build:
+      context: .
+      args:
+        - GAS_BACKEND_HOST=${GAS_BACKEND_HOST}
+        - GAS_BACKEND_PORT=${GAS_BACKEND_PORT}
+        - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+        - SECRET_KEY=${SECRET_KEY}
+        - ALGORITHM=${ALGORITHM}
+        - GAS_DB_USERNAME=${GAS_DB_USERNAME}
+        - GAS_DB_PASSWORD=${GAS_DB_PASSWORD}
+        - GAS_DB_ADDRESS=${GAS_DB_ADDRESS}
+        - GAS_DB_PORT=${GAS_DB_PORT}
+        - GAS_DB_NAME=${GAS_DB_NAME}
+    ports:
+      - ${GAS_BACKEND_PORT}:${GAS_BACKEND_PORT}
+    image: gas-back-image
+    container_name: gas-back-cont
+    # command: "/bin/sh -c 'env'"
